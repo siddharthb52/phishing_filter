@@ -65,7 +65,9 @@ The engine uses a **logistic (sigmoid) transformation** to calibrate raw feature
 
 ### Why Sigmoid Calibration?
 
-Since 100% of the training data is confirmed phishing, simple linear scoring produced unrealistically low probabilities (10-30%). The sigmoid transformation maps scores to reflect real-world phishing distribution, with most emails scoring 50-80%.
+With a MAX_SCORE of 360, it's nearly impossible for any email to trigger all features (scoring 360/360 = 100%). Even blatant phishing typically triggers only 100-200 points (28-56% raw score).
+
+Linear scoring would require an email to hit 90% of all possible features to achieve 90% probability -- nearly all of them. This isn't ideal, as multiple strong signals (though not necesssarily all) should be sufficient to indicate high confidence. The sigmoid transformation calibrates the scale so that emails with multiple strong indicators (e.g., 150/360 = 42% raw) map to appropriately high probabilities (e.g., 80%), reflecting the reality that you don't need ALL signals to be confident it's phishing.
 
 ## Risk Thresholds
 
