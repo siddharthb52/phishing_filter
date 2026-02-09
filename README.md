@@ -129,6 +129,9 @@ python phishing_detector.py phishing_pot/email/
 
 CLI shows basic terminal output with a list of .eml files paired with their phishing score.
 
+<img width="518" height="524" alt="image" src="https://github.com/user-attachments/assets/4d7a9fcc-4aca-4ae5-96b0-69b6a5fa6a7d" />
+
+
 More comprehensive results are saved to `phishing_detection_results.json`:
 
 ```json
