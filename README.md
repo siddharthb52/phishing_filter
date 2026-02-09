@@ -86,7 +86,6 @@ Since 100% of the training data is confirmed phishing, simple linear scoring pro
 git clone https://github.com/siddharthb52/phishing_filter.git
 cd phishing_filter
 
-# No additional dependencies required!
 ```
 
 ### Dataset Setup
