@@ -7,7 +7,7 @@
 
 Your organization has SPF, DKIM, and DMARC configured. Your email gateway checks blacklists. Yet phishing emails still reach inboxes.
 
-**The Reality**: In our analysis of 7,068 real phishing emails, **1 in 4 bypass all authentication checks** (SPF, DKIM, DMARC).
+**The Reality**: In our analysis of 7,068 real phishing emails, **more than 1 in 4 bypass authentication checks** (SPF, DKIM, DMARC).
 
 **Why?**
 - Compromised legitimate accounts (Gmail, Outlook, AOL)
