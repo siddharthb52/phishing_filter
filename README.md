@@ -8,13 +8,13 @@ This detection engine was built and validated against the `rf_peixoto/phishing_p
 
 ### Key Finding: The Authentication Paradox
 
-**~26% of phishing emails pass all authentication checks** (SPF, DKIM, DMARC) due to:
+**~26% of phishing emails in the dataset pass all authentication checks** (SPF, DKIM, DMARC) due to:
 - Compromised legitimate accounts (Gmail, Outlook, AOL)
 - Abused Microsoft 365 tenants (onmicrosoft.com)
 - Legitimate transactional email services (SendGrid, Mailgun)
 - Email forwarding chains
 
-**Conclusion**: Authentication tells you WHO sent the email, not WHETHER it's malicious.
+Authentication tells you WHO sent the email, not WHETHER it's malicious. Further research online shows that an even greater portion of real phishing attacks are able to circumvent these basic authentication protocols.
 
 ## Features
 
