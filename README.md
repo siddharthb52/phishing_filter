@@ -127,7 +127,9 @@ python phishing_detector.py phishing_pot/email/
 
 ### Output
 
-Results are saved to `phishing_detection_results.json`:
+CLI shows basic terminal output with a list of .eml files paired with their phishing score.
+
+More comprehensive results are saved to `phishing_detection_results.json`:
 
 ```json
 {
