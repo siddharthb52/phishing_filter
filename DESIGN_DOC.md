@@ -343,14 +343,17 @@ The MAX_SCORE is dynamically calculated as the sum of all active feature weights
 
 ### Why Logistic Transformation?
 
-**Problem**: Since 100% of our dataset is phishing emails, a simple linear transformation (raw_score / MAX_SCORE) produced unrealistically low probabilities. Most emails scored 10-30%, even though they are all confirmed phishing.
+**Problem**: With MAX_SCORE of 360, achieving high raw scores is extremely difficult. Even blatant phishing emails typically trigger only 100-200 points (28-56% raw score) because it's improbable for a single email to exhibit ALL 20 indicators simultaneously.
 
-**Solution**: Sigmoid/logistic transformation calibrates scores to better reflect real-world phishing distribution:
-- **Low scores (0-20% raw)** → 30-50% probability (subtle phishing)
-- **Medium scores (20-40% raw)** → 50-80% probability (typical phishing)  
-- **High scores (40%+ raw)** → 80-99% probability (blatant phishing)
+Linear scoring would require an email to hit 90% of all possible features to achieve 90% probability -- nearly all of them. This isn't ideal, as multiple strong signals (though not necesssarily all) should be sufficient to indicate high confidence. 
 
-This reflects the reality that emails in our dataset are phishing, with most falling in the 50-80% range.
+**Solution**: Sigmoid/logistic transformation recalibrates the scale so that multiple strong signals are sufficient for high confidence:
+- **0–10% raw** → ~15–30% (minimal indicators)
+- **10–20%** raw → ~30–50% (subtle phishing)
+- **20–40% raw** → ~50–80% (typical phishing)
+- **40%+ raw** → ~80–99% (blatant phishing)
+
+**Key Insight**: You don't need to trigger ALL features to be confident it's phishing. The sigmoid reflects this by amplifying scores where multiple strong indicators are present.
 
 ### Risk Thresholds (Sigmoid-Calibrated)
 
